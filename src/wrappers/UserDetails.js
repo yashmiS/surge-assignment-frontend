@@ -1,6 +1,7 @@
 import { DatePicker, Form, Input, Select, Button, Radio } from "antd";
 import React, { useState } from "react";
 import "../App.css";
+import "../styles/user.css";
 
 const UserDetails = () => {
   const [componentSize, setComponentSize] = useState("default");
@@ -24,6 +25,9 @@ const UserDetails = () => {
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
+      <div className="form">
+        <h1>User Information</h1>
+      </div>
       <Form.Item label="ID">
         <Input />
       </Form.Item>
@@ -44,8 +48,8 @@ const UserDetails = () => {
       </Form.Item>
       <Form.Item label="Status">
         <Radio.Group>
-          <Radio value="single"> Single </Radio>
-          <Radio value="married"> Married </Radio>
+          <Radio value="changed"> Changed </Radio>
+          <Radio value="not changed">Not Change</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Password">
@@ -57,9 +61,17 @@ const UserDetails = () => {
           <Select.Option value="student">student</Select.Option>
         </Select>
       </Form.Item>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
+
+      <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
     </Form>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Button } from "antd";
 
 const { TextArea } = Input;
 
@@ -25,12 +25,25 @@ const Notes = () => {
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
-      <Form.Item label="Input">
+      <div className="form">
+        <h1>Add A Note</h1>
+      </div>
+      <Form.Item label="Title">
         <Input />
       </Form.Item>
 
-      <Form.Item label="TextArea">
+      <Form.Item label="Description">
         <TextArea rows={4} />
+      </Form.Item>
+      <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="save">
+          Save
+        </Button>
       </Form.Item>
     </Form>
   );

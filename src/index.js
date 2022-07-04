@@ -7,6 +7,7 @@ import Login from "./wrappers/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import UserDetails from "./wrappers/UserDetails";
 import Notes from "./wrappers/Notes";
+import UserList from "./wrappers/UserList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,9 @@ root.render(
         </Route>
         <Route exact path={"/user-details"}>
           <UserDetails />
+        </Route>
+        <Route exact path={"/user-list"}>
+          <UserList />
         </Route>
       </Switch>
     </BrowserRouter>
