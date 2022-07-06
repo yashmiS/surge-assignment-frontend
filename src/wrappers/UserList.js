@@ -1,6 +1,5 @@
 import { Button, Form, Input, Popconfirm, Table } from "antd";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "../styles/user.css";
 
 const EditableContext = React.createContext(null);
 const EditableRow = ({ index, ...props }) => {

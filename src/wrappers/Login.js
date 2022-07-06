@@ -1,5 +1,6 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
+import Wrapper from "../component/middleAlignWrapper";
 import "../App.css";
 
 const Login = () => {
@@ -11,73 +12,67 @@ const Login = () => {
     console.log("Failed:", errorInfo);
   };
 
+  fetch("http://localhost:8080/api/auth/signin", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(),
+  }).then((data) => data.json());
+
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <div className="form">
-        <h1>User Login</h1>
-      </div>
-      <Form.Item
-        label="email"
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: "Please input your email",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!",
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
+    <Wrapper>
+      <Form
+        style={{ width: "400px" }}
+        name="basic"
+        initialValues={{
+          remember: true,
         }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        layout="vertical"
       >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+        <div style={{ textAlign: "center" }}>
+          <h1>User Login</h1>
+        </div>
+        <Form.Item
+          label="email"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Please input your email",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item name="remember" valuePropName="checked">
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <Form.Item style={{ textAlign: "right" }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </Wrapper>
   );
 };
 
