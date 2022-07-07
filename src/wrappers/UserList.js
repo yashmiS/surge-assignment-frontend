@@ -84,20 +84,7 @@ const EditableCell = ({
 
 const App = () => {
   <Input placeholder="Basic usage" />;
-  const [dataSource, setDataSource] = useState([
-    {
-      key: "0",
-      name: "Edward King 0",
-      age: "32",
-      address: "London, Park Lane no. 0",
-    },
-    {
-      key: "1",
-      name: "Edward King 1",
-      age: "32",
-      address: "London, Park Lane no. 1",
-    },
-  ]);
+  const [dataSource, setDataSource] = useState([]);
   const [count, setCount] = useState(2);
 
   const handleDelete = (key) => {
@@ -107,18 +94,40 @@ const App = () => {
 
   const defaultColumns = [
     {
-      title: "name",
-      dataIndex: "name",
-      width: "30%",
-      editable: true,
+      title: "id",
+      dataIndex: "id",
     },
     {
-      title: "age",
-      dataIndex: "age",
+      title: "firstName",
+      dataIndex: "firstName",
     },
     {
-      title: "address",
-      dataIndex: "address",
+      title: "lastName",
+      dataIndex: "lastName",
+    },
+    {
+      title: "email",
+      dataIndex: "email",
+    },
+    {
+      title: " dateOfBirth",
+      dataIndex: " dateOfBirth",
+    },
+    {
+      title: "mobile",
+      dataIndex: "mobile",
+    },
+    {
+      title: "status",
+      dataIndex: "status",
+    },
+    {
+      title: "password",
+      dataIndex: "password",
+    },
+    {
+      title: "accountType",
+      dataIndex: "accountType",
     },
     {
       title: "operation",

@@ -36,9 +36,9 @@ const UserDetails = () => {
         },
         body,
       });
-      // if (response.status === 200) {
-      //   history.push("/user-list");
-      // }
+      if (response.status === 200) {
+        history.push("/user-list");
+      }
     } catch (error) {
       console.log(error);
     }
