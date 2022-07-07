@@ -2,11 +2,8 @@ import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 import Wrapper from "../component/middleAlignWrapper";
 import "../App.css";
-import { useHistory } from "react-router-dom";
 
 const Login = () => {
-  const history = useHistory();
-
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -22,7 +19,6 @@ const Login = () => {
     },
     body: JSON.stringify(),
   }).then((data) => data.json());
-  // history.push("app");
 
   return (
     <Wrapper>
